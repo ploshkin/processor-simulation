@@ -8,6 +8,8 @@ from os import listdir, mkdir
 
 
 def get_priorities(exec_times, is_priorities):
+    if len(exec_times) == 1:
+        return [0]
     priorities = [1 for k in range(len(exec_times))]
     min_time = min(exec_times)
     max_time = max(exec_times)
@@ -76,8 +78,6 @@ class System(Environment):
             else:
                 time = 0
             avg.append(time)
-
-        print('Average waiting times: {}\n'.format(avg))
         return avg
 
     @property

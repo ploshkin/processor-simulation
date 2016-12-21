@@ -41,28 +41,3 @@ def graph_std_vs_n_proc(x, y, labels, distribution):
     plt.savefig(join(curdir, 'results', 'std_vs_n_{}.png'.format(distribution)), fmt='png')
 
     return None
-
-
-def graph_std_vs_quantum(x, y):
-    if len(x) != len(y):
-        print('Error')
-        return None
-
-    plt.ylim([0, 10])
-    plt.xlim([0, 1.05])
-
-    plt.plot(x, y, color='r', linewidth=2.0, alpha=0.5)
-
-    plt.title('Relation with quantum duration')
-
-    plt.xlabel('quantum duration')
-    plt.ylabel('mean standard deviation of queue length')
-    plt.grid()
-
-    plt.tight_layout()
-
-    if not isdir(join(curdir, 'results')):
-        mkdir(join(curdir, 'results'))
-
-    plt.savefig(join(curdir, 'results', 'std_vs_quantum.png'), fmt='png')
-    return None
